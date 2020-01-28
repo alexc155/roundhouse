@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha $(find . -name '*.spec.js' ! -ipath '*node_modules*') --reporter spec",
     "test:watch": "npm install && mocha $(find . -name '*.spec.js' ! -ipath '*node_modules*') --reporter min --watch",
-    "cover": "node_modules/nyc/bin/nyc.js node_modules/mocha/bin/_mocha -- --reporter spec $(find . -name '*.spec.js' ! -ipath '*node_modules*')"
+    "cover": "nyc --reporter=lcov --reporter=text npm run test"
   },
   "repository": {
     "type": "git",
