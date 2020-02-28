@@ -1,3 +1,6 @@
+
+[![NPM Version](https://img.shields.io/npm/v/roundhouse.svg?style=flat-square)](https://www.npmjs.com/package/roundhouse)
+[![NPM Downloads](https://img.shields.io/npm/dm/roundhouse.svg?style=flat-square)](https://www.npmjs.com/package/roundhouse)
 [![Build Status](https://travis-ci.org/alexc155/roundhouse.svg?branch=master)](https://travis-ci.org/alexc155/roundhouse)
 [![Coverage Status](https://coveralls.io/repos/github/alexc155/roundhouse/badge.svg?branch=master)](https://coveralls.io/github/alexc155/roundhouse?branch=master)
 [![dependencies Status](https://david-dm.org/alexc155/roundhouse/status.svg)](https://david-dm.org/alexc155/roundhouse)
@@ -80,3 +83,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 - 0.1.0 Registration of package.
 - 1.0.0 Initial release.
+- 1.0.1 Update dependencies.
