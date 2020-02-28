@@ -1,18 +1,52 @@
 {
   "name": "roundhouse",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "./readme.md",
   "main": "index.js",
+  "bin": {
+    "rh": "index.js"
+  },
   "scripts": {
     "test": "mocha $(find . -name '*.spec.js' ! -ipath '*node_modules*') --reporter spec",
     "test:watch": "npm install && mocha $(find . -name '*.spec.js' ! -ipath '*node_modules*') --reporter min --watch",
-    "cover": "nyc --reporter=lcov --reporter=text npm run test"
+    "cover": "nyc --reporter=lcov --reporter=text npm run test",
+    "start": "./index.js -f=./sql -c=mssql://sa:P@ssw0rd@localhost:3341/Roundhouse_Local --env=LOCAL",
+    "help": "./index.js",
+    "setup-local-db": "npm run setup-local-db-kill-container --prefix sql && npm run setup-local-db-pull-image --prefix sql && npm run setup-local-db-pull-image --prefix sql && npm run setup-local-db-run-container --prefix sql && npm run setup-local-db-start-container --prefix sql && npm run setup-local-db-sleep --prefix sql && npm run setup-local-db-init-container --prefix sql && npm run setup-local-db-create-db --prefix sql"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --single-quote es5 --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testResultsProcessor": "jest-teamcity-reporter",
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "lint-staged && npm test",
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexc155/roundhouse.git"
   },
-  "keywords": [],
+  "keywords": [
+    "roundhouse",
+    "rh",
+    "database",
+    "migrate",
+    "db",
+    "SQL",
+    "MsSQL",
+    "migration",
+    "tool",
+    "utility",
+    "script"
+  ],
   "author": "Alex Clark <ahclark@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -22,6 +56,11 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "coveralls": "^3.0.9",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "jest-teamcity-reporter": "^0.9.0",
+    "lint-staged": "^10.0.7",
+    "nodemon": "^2.0.2",
     "mocha": "^7.0.1",
     "mock-fs": "^4.10.4",
     "nyc": "^15.0.0",
@@ -29,6 +68,10 @@
     "sinon": "^8.1.1"
   },
   "dependencies": {
-    "update-notifier": "^4.0.0"
-  }
+    "js-md5": "^0.7.3",
+    "lodash": "^4.17.15",
+    "mssql": "^6.1.0",
+    "update-notifier": "^4.1.0"
+  },
+  "readme": "./readme.md"
 }

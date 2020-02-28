@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "setup-local-db-kill-container": "docker rm -f rh_sql_server || true",
+    "setup-local-db-pull-image": "docker pull microsoft/mssql-server-linux",
+    "setup-local-db-run-container": "docker run -tid --name rh_sql_server -e ACCEPT_EULA=Y -e SA_PASSWORD=P@ssw0rd -p 3341:1433 microsoft/mssql-server-linux",
+    "setup-local-db-start-container": "docker start rh_sql_server",
+    "setup-local-db-sleep": "sleep 20",
+    "setup-local-db-init-container": "docker exec -it rh_sql_server /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd -Q \"USE [master]; CREATE LOGIN app2dbcnx WITH PASSWORD = N'P@ssw0rd', CHECK_POLICY = OFF, CHECK_EXPIRATION = OFF; EXEC sp_addsrvrolemember @loginame = N'app2dbcnx', @rolename = N'sysadmin';\"",
+    "setup-local-db-create-db": "node setup"
+  }
+}

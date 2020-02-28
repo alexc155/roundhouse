@@ -1,0 +1,10 @@
+{
+  "connString": "",
+  "sqlFilesDirectory": "./",
+  "environment": "LOCAL",
+  "warnOnOneTimeScriptChanges": false,
+  "warnAndIgnoreOnOneTimeScriptChanges": false,
+  "disableOutput": false,
+  "runAllAnyTimeScripts": false,
+  "dryRun": false
+}
