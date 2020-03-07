@@ -2,6 +2,7 @@
 [![License](https://img.shields.io/npm/l/roundhouse)](https://www.npmjs.com/package/roundhouse)
 [![NPM Downloads](https://img.shields.io/npm/dm/roundhouse.svg?style=flat-square)](https://www.npmjs.com/package/roundhouse)
 [![Build Status](https://travis-ci.org/alexc155/roundhouse.svg?branch=master)](https://travis-ci.org/alexc155/roundhouse)
+[![Node.js CI](https://github.com/alexc155/roundhouse/workflows/Node.js%20CI/badge.svg)](https://github.com/alexc155/roundhouse/actions?query=workflow%3A%22Node.js+CI%22)
 [![Coverage Status](https://coveralls.io/repos/github/alexc155/roundhouse/badge.svg?branch=master)](https://coveralls.io/github/alexc155/roundhouse?branch=master)
 
 [![dependencies Status](https://david-dm.org/alexc155/roundhouse/status.svg)](https://david-dm.org/alexc155/roundhouse)
