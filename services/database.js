@@ -97,10 +97,18 @@ const executeScript = async (scriptParams, contents) => {
   if (!scriptParams.dryRun) {
     await sql.connect(scriptParams.connString);
     try {
-      const scriptParts = contents.split(/\sGO;?\s|\sGO;?$/gi);
+      let prepContents = contents;
+      while (prepContents.search(/--.*?go/gi) > 0) {
+        prepContents = prepContents.replace(/(--.*?)go/gi, '$1roundhouse_replace_token');
+      }
+      while (prepContents.search(/\/\*.*?go.*?\*\//gis) > 0) {
+        prepContents = prepContents.replace(/(\/\*.*?)go(.*?\*\/)/gis, '$1roundhouse_replace_token$2');
+      }
+
+      const scriptParts = prepContents.split(/\sGO;?\s|\sGO;?$/gi);
       for (const scriptPart of scriptParts) {
         if (scriptPart.trim().length > 0) {
-          await sql.batch(scriptPart);
+          await sql.batch(scriptPart.replace(/roundhouse_replace_token/g, 'go'));
         }
       }
       const oneTimeFlag = scriptParams.type === 'OneTime' ? 1 : 0;

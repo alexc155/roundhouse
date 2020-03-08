@@ -4,7 +4,38 @@ const { log } = require('../utils');
 const { initRoundhouse } = require('../services/roundhouse');
 
 const createDatabase = async connString => {
-  await sql.connect(connString);
+  log.info('Checking Db availability...');
+
+  let available = false;
+  let i = 0;
+
+  while (!available) {
+    i++;
+    try {
+      await sql.connect(`${connString}/master`);
+      const availableQuery = await sql.query`SELECT 1+1 AS Ok`;
+      available = availableQuery.recordset[0].Ok == 2;
+    } catch (error) {
+      try {
+        await sql.close();
+      } catch (err) {
+        log.info('Db not ready');
+      }
+    }
+    log.info(`Sleeping for 2 secs (${i} of 30)...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    if (i > 29) {
+      log.error(`Nope, something's wrong with the local database server. Check your local docker instance`);
+      process.exit(1);
+    }
+  }
+
+  log.info('Server is available. Proceeding...');
+
+  await sql.batch(
+    `USE [master]; CREATE LOGIN app2dbcnx WITH PASSWORD = N'P@ssw0rd', CHECK_POLICY = OFF, CHECK_EXPIRATION = OFF; EXEC sp_addsrvrolemember @loginame = N'app2dbcnx', @rolename = N'sysadmin';`
+  );
+
   const databaseExists = await sql.query("SELECT [name] FROM sys.Databases WHERE [name] = 'Roundhouse_Local'");
   if (databaseExists.recordset.length === 1) {
     return true;

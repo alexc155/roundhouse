@@ -1,6 +1,6 @@
 {
   "name": "roundhouse",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Database Migration Utility using SQL files and versioning based on source control.",
   "main": "index.js",
   "bin": {
@@ -12,7 +12,7 @@
     "cover": "nyc --reporter=lcov --reporter=text npm run test",
     "start": "./index.js -f=./sql -c=mssql://sa:P@ssw0rd@localhost:3341/Roundhouse_Local --env=LOCAL",
     "help": "./index.js",
-    "setup-local-db": "npm run setup-local-db-kill-container --prefix sql && npm run setup-local-db-pull-image --prefix sql && npm run setup-local-db-pull-image --prefix sql && npm run setup-local-db-run-container --prefix sql && npm run setup-local-db-start-container --prefix sql && npm run setup-local-db-sleep --prefix sql && npm run setup-local-db-init-container --prefix sql && npm run setup-local-db-create-db --prefix sql"
+    "setup-local-db": "npm run setup-local-db-kill-container --prefix sql && npm run setup-local-db-pull-image --prefix sql && npm run setup-local-db-run-container --prefix sql && npm run setup-local-db-start-container --prefix sql && npm run setup-local-db-create-db --prefix sql"
   },
   "lint-staged": {
     "src/**/*.js": [

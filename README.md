@@ -91,7 +91,6 @@ migrate(args);
 * The utility will create a schema and 3 new tables in your database to track progress.
 * This utility _should_ run happily alongside the Windows project, but this is untested.
 * No log files are generated of the changes, however entries are made into the RoundhousE.ScriptRun table.
-* It's not great at handling the word 'go' in a comment... Sorry
 
 ## Tests
 
@@ -111,3 +110,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 - 1.0.1 Update dependencies.
 - 1.0.2 Tidying Hash Generator.
 - 1.0.3 Complete test coverage.
+- 1.0.4 Fix problem with 'go' in comments.
