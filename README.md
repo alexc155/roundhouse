@@ -109,3 +109,5 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 - 0.1.0 Registration of package.
 - 1.0.0 Initial release.
 - 1.0.1 Update dependencies.
+- 1.0.2 Tidying Hash Generator.
+- 1.0.3 Complete test coverage.
