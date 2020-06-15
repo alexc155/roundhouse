@@ -25,6 +25,7 @@ const runAnyTimeScript = async scriptParams => {
   const scriptHashCheck = await checkScriptHash(scriptParams, scriptParams.filename, scriptHash);
   if (
     (scriptHashCheck.result && scriptHashCheck.result === 'Not Run') ||
+    (scriptHashCheck.result && scriptHashCheck.result === 'Changed') ||
     scriptParams.runAllAnyTimeScripts ||
     scriptParams.path.toUpperCase().indexOf('.EVERYTIME.') > 0
   ) {
