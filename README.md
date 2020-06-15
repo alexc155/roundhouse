@@ -14,7 +14,8 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/alexc155/roundhouse)](https://www.github.com/alexc155/roundhouse)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/alexc155/roundhouse)](https://www.codefactor.io/repository/github/alexc155/roundhouse)
 
-# roundhouse
+# Roundhouse
+
 Database Migration Utility using sql files and versioning based on source control.
 
 RoundhousE (RH) is a database migrations engine that uses plain old SQL Scripts to transition a database from one version to another.
@@ -111,3 +112,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 - 1.0.2 Tidying Hash Generator.
 - 1.0.3 Complete test coverage.
 - 1.0.4 Fix problem with 'go' in comments.
+- 1.0.6 Merged [Fix run anytime scripts if they have changed](https://github.com/alexc155/roundhouse/pull/2)

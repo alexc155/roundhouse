@@ -1,6 +1,6 @@
 {
   "name": "roundhouse",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Database Migration Utility using SQL files and versioning based on source control.",
   "main": "index.js",
   "bin": {
